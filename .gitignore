@@ -1,3 +1,5 @@
 *.pyc
 *.sqlite
 .sass-cache/
+xw/static/css/compiled/
+xw/static/js/compiled/

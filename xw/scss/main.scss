@@ -97,21 +97,44 @@ textarea {
    Author's custom styles
    ========================================================================== */
 
+*, *:before, *:after {
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}
 
+table {
+    border: 1px solid black;
+}
 
-
-
-
-
-
-
-
-
-
-
-
-
-
+td {
+    border: 1px solid black;
+    width: 2rem;
+    height: 2rem;
+    &.dark {
+        background-color: black;
+    }
+    &.light {
+        div {
+            position: relative;
+            height: 100%;
+            width: 100%;
+            input {
+                border: 0;
+                width: 100%;
+                height: 100%;
+                text-align: center;
+            }
+            span.clue-num {
+                position: absolute;
+                top: 0;
+                /* display: float; */
+                /* float: left; */
+                font-size: x-small;
+            }
+        }
+    }
+}
 
 /* ==========================================================================
    Helper classes
