@@ -26,4 +26,9 @@ xw/static/pylons.css
 xw/static/pyramid-small.png
 xw/static/pyramid.png
 xw/static/transparent.gif
+xw/static/css/main.css
+xw/static/css/vendor/normalize.css
+xw/static/js/main.js
+xw/static/js/vendor/jquery-2.0.3.js
+xw/static/js/vendor/modernizr-latest.js
 xw/templates/mytemplate.pt
