@@ -20,18 +20,46 @@
 <table>
 <tbody>
 {% for line in lines %}
+  {% set rowloop = loop %}
   <tr>
   {% for c in line %}
     {% if c == '.' %}
     <td class="dark"></td>
     {% else %}
-    <td class="light"><div><span class="clue-num">1</span><input type="text"></div></td>
+    <td class="light"><div>
+      {% if (rowloop.index0, loop.index0) in clue_positions %}
+      <span class="clue-num">{{clue_positions[(rowloop.index0, loop.index0)]}}</span>
+      {% endif %}
+      <input type="text">
+    </div></td>
     {% endif %}
   {% endfor %}
   </tr>
 {% endfor %}
 </tbody>
 </table>
+<div class="clearfix">
+<div class="half">
+<section>
+  <h1>Across</h1>
+  <ul class="clues">
+{% for num, clue in across_tups %}
+    <li>{{num}}. {{clue}}</li>
+{% endfor %}
+  </ul>
+</section>
+</div>
+<div class="half">
+<section>
+  <h1>Down</h1>
+  <ul class="clues">
+{% for num, clue in down_tups %}
+    <li>{{num}}. {{clue}}</li>
+{% endfor %}
+  </ul>
+</section>
+</div>
+</div>
 <script src="/static/js/vendor/jquery-2.0.3.js"></script>
 <script src="/static/js/compiled/plugins.js"></script>
 <script src="/static/js/compiled/main.js"></script>
