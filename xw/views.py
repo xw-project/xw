@@ -39,10 +39,10 @@ def index(request):
     with open(filename) as f:
         contents = f.read()
     grid_and_title_and_creator, clues, _ = contents.split(b'\x00\x00\x00')[3].split(b'\x00\x00')
-    grid_and_title, creator = grid_and_title_and_creator.split(b'\x00')
-    solution = grid_and_title[:225]
+    grid_and_title, _creator = grid_and_title_and_creator.split(b'\x00')
+    _solution = grid_and_title[:225]
     s = grid_and_title[225:450]
-    title = grid_and_title[450:]
+    _title = grid_and_title[450:]
     clues = clues.split(b'\x00')
     lines = []
     LINE_SIZE = 15
