@@ -38,12 +38,16 @@ def index(request):
     filename = os.path.join(root_dir, 'sample.puz')
     with open(filename) as f:
         contents = f.read()
-    grid_and_title_and_creator, clues, _ = contents.split(b'\x00\x00\x00')[3].split(b'\x00\x00')
-    grid_and_title, _creator = grid_and_title_and_creator.split(b'\x00')
+    useful_part = contents[52:].split(b'\x00')
+    grid_and_title = useful_part[0]
+    creator = useful_part[1]
+    assert not useful_part[-2]
+    assert not useful_part[-1]
+
+    clues = useful_part[3:-2]
     _solution = grid_and_title[:225]
     s = grid_and_title[225:450]
     _title = grid_and_title[450:]
-    clues = clues.split(b'\x00')
     lines = []
     LINE_SIZE = 15
     for i in itertools.count(0, LINE_SIZE):
